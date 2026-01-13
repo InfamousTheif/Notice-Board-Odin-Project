@@ -1,0 +1,14 @@
+.msg-board__post {
+  margin: 50px auto;
+  max-width: 60rem;
+  max-height: 40rem;
+  font-size: 3.8rem;
+}
+
+.msg-board__post:hover {
+  filter: none;
+}
+
+.msg-board__content {
+  margin-bottom: 5rem;
+}

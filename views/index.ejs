@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/buttons.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="page-header">
+      <h1>Request Board</h1>
+    </header>
+
+    <!-- Main -->
+    <main>
+
+      <div class="blur-overlay">
+
+        <div class="msg-board">
+
+          <!-- <h2 class="msg-board__title">Requests</h2> -->
+
+          <div class="msg-board__post-area">
+
+              <% for (let i = 0; i < messages.length; i++) { %>
+                
+
+                  <a href="/message?msgId=<%= messages[i].msgId %>">
+                    <div class="msg-board__post">
+                      <p class="msg-board__content"><%= messages[i].text%></p>
+                      <div class="msg-board__details">
+                        <p class="msg-board__user"><%= messages[i].user%>,</p>
+                        <span class="msg-board__time"><%= messages[i].added%></span>
+                      </div>
+                    </div>
+                  </a>
+                  
+              
+              <% } %>            
+            
+          </div>
+
+        </div>
+
+        <!-- Create Request From button -->
+        <div class="show-form-button-wrapper">
+          <button class="show-form-button" aria-label="Create a request">
+            <img alt="Show request form" src="/images/si_glyph_pen_nib.svg">
+          </button>
+        </div>
+
+      </div>
+
+      <%- include('form.ejs') %>
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="page-footer">
+      <span class="dev-name">Creator: Inquntum</span>
+
+      <a class="dev-github" href=""><img alt="GitHub-Icon" src="/images/github-mark/github-mark-white.png"></a>
+      
+      <div class="credits-column">
+        <span class="credits-column__title">Credits:</span>
+        <a href="https://www.onlinewebfonts.com/icon/262477">Pen Icon</a>
+      </div>
+    </footer>
+  </body>
+</html>

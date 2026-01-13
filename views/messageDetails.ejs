@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message detail</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/msg-details.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="page-header">
+      <h1>Request Details</h1>
+    </header>
+
+    <!-- Main -->
+    <main>
+
+      <div class="msg-board__post">
+        <p class="msg-board__content">Text: <%= messages[msgId].text %> </p>
+        <div class="msg-board__details">
+          <p class="msg-board__user">User: <%= messages[msgId].user %> </p>
+          <span class="msg-board__time">Time Sent: <%= messages[msgId].added %> </span>
+          <span> Message sent: <%= dateSent %> ago</span>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="page-footer">
+      <span class="dev-name">Creator: Inquntum</span>
+
+      <a class="dev-github" href=""><img alt="GitHub-Icon" src="/images/github-mark/github-mark-white.png"></a>
+      
+      <div class="credits-column">
+        <span class="credits-column__title">Credits:</span>
+        <a href="https://www.onlinewebfonts.com/icon/262477">Pen Icon</a>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,21 @@
+<!-- Request Form -->
+<div class="request-form">
+  <button class="request-form__hide-button" aria-label="Hide request form">X</button>
+
+  <h2 class="request-form__header">Write a request</h2>
+
+  <form class="request-form__form" method="post" action="/">
+    <div class="request-form__group">
+      <label for="request-form__name">Name</label>
+      <input type="text" id="request-form__name" name="name" placeholder="Name" required>
+    </div>
+
+    <div class="request-form__group">
+      <label for="request-form__content">Content</label>
+      <textarea id="request-form__text" name="text" placeholder="Write a request..."></textarea>
+    </div>
+
+    <button type="submit" class="request-form__submit-button" aria-label="Submit request">Submit</button>
+  </form>
+
+</div>
