@@ -31,6 +31,6 @@ homeRouter.post("/", (req, res) => {
   // console.log(messages.length);
   // console.log(messages);
   res.redirect("/");
-})
+});
 
 export { homeRouter, messages }
