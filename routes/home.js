@@ -19,7 +19,7 @@ const messages = [
   }
 ];
 
-const title = "Inq's Request Board"
+const title = "Inq's Notice Board"
 
 homeRouter.get("/", (req, res) => {
   res.render('index', {title, messages});
