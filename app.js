@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv"
+dotenv.config()
 import { homeRouter } from "./routes/home.js";
 import { msgDetRouter } from "./routes/msgDet.js";
 
@@ -9,13 +11,13 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, (error) => {
   if(error){
     throw error;
   };
-  console.log(`The website is at http://localhost:3000/`);
+  console.log(`The website is at port ${PORT}`);
 });
 
 app.use(express.static('public'));
