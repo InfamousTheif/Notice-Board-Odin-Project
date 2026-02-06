@@ -1,7 +1,6 @@
 function getTimeDiff(sentDate) {
-const utcTime = new Date().toISOString();
 const sentAt = new Date(sentDate);
-const now = new Date(utcTime);
+const now = new Date();
 
 let diffMs = now - sentAt; // difference in ms
 
