@@ -28,8 +28,6 @@ async function formPost(req, res) {
     return
   };
 
-  messages.push({post: req.body.post, user: req.body.user, rawAdded: new Date(), added:new Date().toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}), msgId: messages.length });
-
   await db.insertPostInfo(req.body);
   res.redirect("/");
 }
