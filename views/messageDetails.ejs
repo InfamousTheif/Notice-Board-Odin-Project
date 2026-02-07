@@ -17,11 +17,11 @@
     <main>
 
       <div class="msg-board__post">
-        <p class="msg-board__content">Text: <%= messages[msgId].post %> </p>
+        <p class="msg-board__content">Text: <%= message.content %> </p>
         <div class="msg-board__details">
-          <p class="msg-board__user">User: <%= messages[msgId].user %> </p>
-          <span class="msg-board__time">Time Sent: <%= messages[msgId].added %> </span>
-          <span> Message sent: <%= dateSent %> ago</span>
+          <p class="msg-board__user">User: <%= message.username %> </p>
+          <span class="msg-board__time">Time Sent: <%= dateHandler.hourMinuteFormat(message.created_at) %> </span>
+          <span> Message sent: <%= dateHandler.getTimeDiff(message.created_at) %> ago</span>
         </div>
       </div>
 

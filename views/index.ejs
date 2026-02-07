@@ -28,12 +28,12 @@
               <% for (let i = 0; i < messages.length; i++) { %>
                 
 
-                  <a class="msg-board__post-link" href="/message?msgId=<%= messages[i].msgId %>">
+                  <a class="msg-board__post-link" href="/message?msgId=<%= messages[i].msgid %>">
                     <div class="msg-board__post">
-                      <p class="msg-board__content"><%= messages[i].post%></p>
+                      <p class="msg-board__content"><%= messages[i].content%></p>
                       <div class="msg-board__details">
-                        <p class="msg-board__user"><%= messages[i].user%>,</p>
-                        <span class="msg-board__time"><%= messages[i].added%></span>
+                        <p class="msg-board__user"><%= messages[i].username%>,</p>
+                        <span class="msg-board__time"><%= dateHandler.hourMinuteFormat(messages[i].created_at) %></span>
                       </div>
                     </div>
                   </a>

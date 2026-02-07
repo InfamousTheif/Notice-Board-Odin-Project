@@ -1,9 +1,12 @@
 import { messages } from "../routes/home.js";
 import { body, validationResult, matchedData } from "express-validator";
+import * as db from "../db/queries.js";
+import * as dateHandler from "../controllers/date-difference.js";
 
-function renderIndex(req, res) {
-  const title = "Inq's Notice Board"
-  res.render('index', {title, messages});
+async function renderIndex(req, res) {
+  const title = "Inq's Notice Board";
+  const messages = await db.getPostInfo();
+  res.render('index', {title, messages, dateHandler });
 }
 
 // Form validation
@@ -20,14 +23,27 @@ const validatePost = [
     .isLength({ min:1, max:300 }).withMessage(`Text ${textLengthErr}`)  
 ]
 
-function formPost(req, res) {
+async function formPost(req, res) {
   const errors = validationResult(req);
   if(!errors.isEmpty()) {
     return
   };
 
   messages.push({post: req.body.post, user: req.body.user, rawAdded: new Date(), added:new Date().toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}), msgId: messages.length });
+
+  await db.insertPostInfo(req.body);
   res.redirect("/");
 }
 
-export { renderIndex, formPost, validatePost }
+//message details page
+
+async function renderMsgDetails(req, res) {
+  const { msgId } = req.query;
+  const messages = await db.getPostInfo();
+  const message = messages[(msgId - 1)];
+  res.render("messageDetails", {
+    message, dateHandler
+  })
+}
+
+export { renderIndex, formPost, validatePost, renderMsgDetails }

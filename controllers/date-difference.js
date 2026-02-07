@@ -29,4 +29,21 @@ const seconds = Math.floor(diffMs / second);
  return `${days}d ${hours}h ${minutes}m ${seconds}s`
 }
 
-export { getTimeDiff }
+function hourMinuteFormat(time) {
+ const date = new Date(time)
+ const hours = date.getHours();
+ const minutes = date.getMinutes();
+
+ const formattedHours = hours.toString().padStart(2, '0');
+ const formattedMinutes = minutes.toString().padStart(2, '0');
+
+ const timeString = date.toLocaleTimeString('en-US', {
+   hour: 'numeric',
+   minute: '2-digit',
+   hour12: true
+ });
+
+ return timeString
+}
+
+export { getTimeDiff, hourMinuteFormat }
