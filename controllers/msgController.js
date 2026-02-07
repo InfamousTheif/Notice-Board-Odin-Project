@@ -17,7 +17,6 @@ const validatePost = [
     .isLength({ min:1, max:15 }).withMessage(`Name ${nameLengthErr}`),
 
   body("post").trim()
-    .optional({ values: "falsy" })
     .isLength({ min:1, max:300 }).withMessage(`Text ${textLengthErr}`)  
 ]
 
