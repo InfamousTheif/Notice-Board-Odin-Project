@@ -13,10 +13,10 @@ const nameLengthErr = "must be between 1 to 15 characters long";
 const textLengthErr = "must be between 1 to 300 characters long";
 
 const validatePost = [
-  body("name").trim()
+  body("user").trim()
     .isLength({ min:1, max:15 }).withMessage(`Name ${nameLengthErr}`),
 
-  body("text").trim()
+  body("post").trim()
     .optional({ values: "falsy" })
     .isLength({ min:1, max:300 }).withMessage(`Text ${textLengthErr}`)  
 ]
@@ -27,7 +27,7 @@ function formPost(req, res) {
     return
   };
 
-  messages.push({text: req.body.text, user: req.body.name, rawAdded: new Date(), added:new Date().toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}), msgId: messages.length });
+  messages.push({post: req.body.post, user: req.body.user, rawAdded: new Date(), added:new Date().toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}), msgId: messages.length });
   res.redirect("/");
 }
 

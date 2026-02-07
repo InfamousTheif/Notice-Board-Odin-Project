@@ -3,7 +3,8 @@
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.2.1",
-    "express-validator": "^7.3.1"
+    "express-validator": "^7.3.1",
+    "pg": "^8.18.0"
   },
   "name": "message-board",
   "version": "1.0.0",

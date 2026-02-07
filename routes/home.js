@@ -5,14 +5,14 @@ const homeRouter = Router();
 
 const messages = [
   {
-    text: "Hi there!",
+    post: "Hi there!",
     user: "Amando",
     added: new Date().toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}),
     rawAdded: new Date(),
     msgId: 0
   },
   {
-    text: "Hello World!",
+    post: "Hello World!",
     user: "Charles",
     added: new Date().toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}),
     rawAdded: new Date(),
