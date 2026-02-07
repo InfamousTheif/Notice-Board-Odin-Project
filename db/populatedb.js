@@ -4,12 +4,13 @@ const SQL = `
  CREATE TABLE IF NOT EXISTS userPost (
   msgId INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY ,
   username VARCHAR(15) NOT NULL CHECK (LENGTH(TRIM(username)) > 0),
-  content VARCHAR(300) NOT NULL CHECK (LENGTH(TRIM(content)) > 0)
+  content VARCHAR(300) NOT NULL CHECK (LENGTH(TRIM(content)) > 0),
+  created_at TIMESTAMPTZ DEFAULT now()
 );
 
 INSERT INTO userPost (username, content)
-VALUES ('Kyle1111111', 'I love cheese'),
-		   ('Kyle', 'I love cheese');
+VALUES ('Inq', 'I hate web dev'),
+		   ('Inq2', 'I love money');
  `
 
 async function populateDB() {
