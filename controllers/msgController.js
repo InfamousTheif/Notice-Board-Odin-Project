@@ -28,7 +28,8 @@ async function formPost(req, res) {
     return
   };
 
-  await db.insertPostInfo(req.body);
+  const postData = matchedData(req)
+  await db.insertPostInfo(postData);
   res.redirect("/");
 }
 
