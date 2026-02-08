@@ -285,3 +285,24 @@ header > h1 {
 .credits-column {
   margin-top: 0.4rem;
 }
+
+/* input error styling */
+
+input, textarea {
+  --fail-color: red;
+}
+
+input:not(:placeholder-shown):invalid, textarea:not(:placeholder-shown):invalid {
+  outline-color: var(--fail-color);
+}
+
+input:focus:invalid, textarea:focus:invalid {
+  outline-color: var(--fail-color);
+}
+
+.request-form__constraints {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.4rem;
+  color: black;
+}

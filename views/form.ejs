@@ -7,12 +7,14 @@
   <form class="request-form__form" method="post" action="/">
     <div class="request-form__group">
       <label for="request-form__name">Name</label>
-      <input type="text" id="request-form__name" name="user" placeholder="Name" required>
+      <input type="text" id="request-form__name" name="user" placeholder="e.g. gamer123" minlength="1" maxlength="15"  required>
+      <p class="request-form__constraints">must be between 1 and 15 characters</p>
     </div>
 
     <div class="request-form__group">
       <label for="request-form__content">Content</label>
-      <textarea id="request-form__text" name="post" placeholder="Write a request..."></textarea>
+      <textarea id="request-form__text" name="post" placeholder="Write a request..." minlength="1" maxlength="300" ></textarea>
+      <p class="request-form__constraints">must be between 1 and 300 characters</p>
     </div>
 
     <button type="submit" class="request-form__submit-button" aria-label="Submit request">Submit</button>
