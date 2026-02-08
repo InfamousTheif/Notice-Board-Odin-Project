@@ -16,6 +16,10 @@ VALUES ('Inq', 'I hate web dev'),
 async function populateDB() {
   console.log("seeding...")
 
+  if (!process.argv[2]) {
+    throw new Error("Missing database connection string");
+  } 
+
   const client = new Client({
     connectionString: process.argv[2]
   });
