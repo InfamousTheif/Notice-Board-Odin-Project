@@ -49,7 +49,15 @@ function hourMinuteFormat(time) {
    hour12: true
  });
 
- return `${hours}:${minutes} ${getAmPM(date)}`
+ const options = {
+  hour: 'numeric',
+  minute: 'numeric'
+ }
+
+ const formatter = new Intl.DateTimeFormat(navigator.language, options);
+ const formattedDate = formatter.format(date);
+
+ return `${formattedDate}`
 }
 
 export { getTimeDiff, hourMinuteFormat }
