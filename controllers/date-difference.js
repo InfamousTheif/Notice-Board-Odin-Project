@@ -29,6 +29,12 @@ const seconds = Math.floor(diffMs / second);
  return `${days}d ${hours}h ${minutes}m ${seconds}s`
 }
 
+function getAmPM(date) {
+  const hours = date.getHours();
+  const amPm = hours < 12 ? 'AM' : 'PM';
+  return amPm;
+}
+
 function hourMinuteFormat(time) {
  const date = new Date(time)
  const hours = date.getHours();
@@ -43,7 +49,7 @@ function hourMinuteFormat(time) {
    hour12: true
  });
 
- return timeString
+ return `${hours}:${minutes} ${getAmPM(date)}`
 }
 
 export { getTimeDiff, hourMinuteFormat }
