@@ -33,7 +33,7 @@
                       <p class="msg-board__content"><%= messages[i].content%></p>
                       <div class="msg-board__details">
                         <p class="msg-board__user"><%= messages[i].username%>,</p>
-                        <span class="msg-board__time"><%= dateHandler.hourMinuteFormat(messages[i].created_at) %></span>
+                        <span class="msg-board__time"><%= dateHandler.hourMinuteFormat(messages[i].created_at, preferredLang) %></span>
                       </div>
                     </div>
                   </a>

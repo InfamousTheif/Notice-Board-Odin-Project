@@ -5,7 +5,8 @@ import * as dateHandler from "../controllers/date-difference.js";
 async function renderIndex(req, res) {
   const title = "Inq's Notice Board";
   const messages = await db.getPostInfo();
-  res.render('index', {title, messages, dateHandler });
+  const preferredLang = dateHandler.getPreferredLang(req);
+  res.render('index', {title, messages, dateHandler, preferredLang });
 }
 
 // Form validation
@@ -39,8 +40,9 @@ async function renderMsgDetails(req, res) {
   const { msgId } = req.query;
   const messages = await db.getPostInfo();
   const message = messages[(msgId - 1)];
+  const preferredLang = dateHandler.getPreferredLang(req);
   res.render("messageDetails", {
-    message, dateHandler
+    message, dateHandler, preferredLang
   })
 }
 
